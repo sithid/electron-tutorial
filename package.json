@@ -4,11 +4,12 @@
   "description": "simple electron app for learning",
   "main": "main.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "James Glosser",
   "license": "ISC",
   "devDependencies": {
-    "eleectron": "^0.0.1-security"
+    "electron": "^37.2.0"
   }
 }
