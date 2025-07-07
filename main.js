@@ -1,9 +1,9 @@
 const path = require("path");
 const { app, BrowserWindow, Menu } = require("electron");
 
-const isDev = process.env.NODE_ENV !== 'development';
+const isDev = process.env.NODE_ENV !== "development";
 
-const isMac = process.platform === 'darwin';
+const isMac = process.platform === "darwin";
 
 // create main 'root' window
 function createMainWindow() {
@@ -13,8 +13,8 @@ function createMainWindow() {
     height: 1000,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false
-    }
+      contextIsolation: false,
+    },
   });
 
   if (isDev) {
@@ -32,10 +32,6 @@ function createAboutWindow() {
     height: 500,
     resizable: false,
     autoHideMenuBar: true,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false
-    }
   });
 
   aboutWindow.loadFile(path.join(__dirname, "./gui/about.html"));
@@ -58,6 +54,7 @@ const menu = [
       {
         label: "About",
         click: createAboutWindow,
+        accelerator: "CmdOrCtrl+A",
       },
     ],
   },
@@ -65,7 +62,7 @@ const menu = [
 
 app.whenReady().then(() => {
   createMainWindow();
-  
+
   const mainMenu = Menu.buildFromTemplate(menu);
   Menu.setApplicationMenu(mainMenu);
 
